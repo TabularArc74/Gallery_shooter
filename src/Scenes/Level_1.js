@@ -5,22 +5,15 @@ class Level_1 extends Phaser.Scene {
     }
 
     preload() {
-        this.load.setPath("./assets/");                        // Set load path
-        this.load.image("char", "tile_0240.png");             // character
-        this.load.image("emit", "tile_0014.png");             // emission
     }
 
     create() {
 
-        this.inFlight = false;
 
         this.spaceBar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-        my.sprite.char = this.add.sprite(500, 750, "char");
-        my.sprite.emit = this.add.sprite(500, 750, "emit");
-        my.sprite.emit.visible = false;
+        my.sprite.playerShip = this.add.sprite(200, 395, "player");
 
-        document.getElementById('description').innerHTML = '<h2>Main.js</h2><br>A/D: Move left and right <br>SPACE - Fire orb';
     }
 
     update() {
@@ -28,6 +21,18 @@ class Level_1 extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(this.spaceBar)) {
             console.log("Firing");
             
+        }
+
+        if (this.upKey.isDown) {
+            if(my.sprite.playerShip.y < 984){
+                my.sprite.playerShip.y = my.sprite.playerShip.y + 8;
+            }
+        }
+
+        if (this.downKey.isDown) {
+            if(my.sprite.playerShip.y > 16){
+                my.sprite.playerShip.y = my.sprite.playerShip.y - 8;
+            }
         }
 
         

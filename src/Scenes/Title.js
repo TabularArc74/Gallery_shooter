@@ -14,7 +14,6 @@ class Title extends Phaser.Scene {
 
     create() {
 
-        this.currSelect = 0; //0 is start, 1 is controls
 
         this.upKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         this.downKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
